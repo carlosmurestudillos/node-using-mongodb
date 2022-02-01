@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import routes from './src/routes/routes';
 
 const app = express();
 const port = 4000;
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Rutas de la app
-app.use('/products', require('./routes'));
+routes(app);
 
 app.get('/', (req, res) =>
     res.send(`Store server running on port ${port}`)
