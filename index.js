@@ -13,6 +13,9 @@ mongoose.connect('mongodb://localhost/productsdb', {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Rutas de la app
+app.use('/products', require('./routes'));
+
 app.get('/', (req, res) =>
     res.send(`Store server running on port ${port}`)
 );
