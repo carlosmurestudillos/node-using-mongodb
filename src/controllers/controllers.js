@@ -12,3 +12,21 @@ export const addnewProduct = (req, res) => {
         req.json(Product);
     });
 };
+
+export const getProducts = (req, res) => {
+    Product.find((err, Product) => {
+        if (err) {
+            res.send(err);
+        }
+        req.json(Product);
+    });
+};
+
+export const getProductWithID = (req, res) => {
+    Product.findById((err, Product) => {
+        if (err) {
+            res.send(err);
+        }
+        req.json(Product);
+    });
+};
