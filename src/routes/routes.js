@@ -1,15 +1,21 @@
 // Importamos Express
-import {addnewProduct, getProducts, getProductWithID} from '../controllers/controllers'
+import {addnewProduct, getProducts, getProductWithID, updateProduct, deleteProduct} from '../controllers/controllers'
 
 const routes = (app) => {
     // Crear un producto
     app.route('/products').post(addnewProduct);
 
-    // Obtener productos
+    // Obtener todos los productos
     app.route('/products').get(getProducts);
 
-    // Obtener los datos de un producto
+    // Obtener producto por ID
     app.route('/products/:ProductID').get(getProductWithID);
+
+    // Actualiza producto
+    app.route('/products/:ProductID').put(updateProduct);
+
+    // Elimina producto
+    app.route('/products/:ProductID').delete(deleteProduct);
 }
 
 export default routes;
