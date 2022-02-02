@@ -1,12 +1,15 @@
 // Importamos Express
-import {addnewProduct, getProducts} from '../controllers/controllers'
+import {addnewProduct, getProducts, getProductWithID} from '../controllers/controllers'
 
 const routes = (app) => {
-    app.route('/products')
     // Crear un producto
-    .post(addnewProduct)
-    // Obtener listado de productos
-    .get(getProducts)
+    app.route('/products').post(addnewProduct);
+
+    // Obtener productos
+    app.route('/products').get(getProducts);
+
+    // Obtener los datos de un producto
+    app.route('/products/:ProductID').get(getProductWithID);
 }
 
 export default routes;
