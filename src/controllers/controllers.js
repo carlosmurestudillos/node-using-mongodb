@@ -32,7 +32,7 @@ export const getProductWithID = (req, res) => {
 };
 
 export const updateProduct = (req, res) => {
-    Product.updateOne( { _id: req.params.ProductID },
+    Product.findOneAndUpdate( { _id: req.params.ProductID },
                               req.body, 
                               {new: true, useFindAndModify: false},
                               (err, Product) => {
