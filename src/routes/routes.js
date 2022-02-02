@@ -10,8 +10,10 @@ const routes = (app) => {
     
     app.route('/products/:ProductID')
         .get(getProductWithID) // Obtener producto por ID
-        .put(updateProduct)    // Actualiza producto
-        .delete(deleteProduct); // Elimina producto
+        .put(updateProduct);    // Actualiza producto
+
+    app.route('/products/:Product')
+    .delete(deleteProduct); // Elimina producto
 }
 
 export default routes;
